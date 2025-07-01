@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web Payment DANA & GoPay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-image: url('https://wallpaperaccess.com/full/3703067.jpg');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+      padding: 30px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      
+      /* Animasi masuk */
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideIn 1s ease forwards;
+    }
+
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .logos {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 15px 0;
+    }
+
+    .logos img {
+      height: 40px;
+    }
+
+    .info {
+      font-size: 16px;
+      color: #444;
+      margin: 15px 0 5px;
+    }
+
+    .copy-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin: 5px 0 15px;
+    }
+
+    .copy-btn {
+      padding: 5px 12px;
+      font-size: 14px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .copy-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .qris {
+      margin-top: 20px;
+    }
+
+    .qris img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Pembayaran DANA & GoPay</h1>
+    <div class="logos">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_dana_blue.svg" alt="Logo DANA" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/GoPay_logo.svg" alt="Logo GoPay" />
+    </div>
+
+    <div class="info">Nomor DANA:</div>
+    <div class="copy-section">
+      <span id="danaNum">082171792648</span>
+      <button class="copy-btn" onclick="copyText('danaNum')">Salin</button>
+    </div>
+
+    <div class="info">Nomor GoPay:</div>
+    <div class="copy-section">
+      <span id="gopayNum">083834033003</span>
+      <button class="copy-btn" onclick="copyText('gopayNum')">Salin</button>
+    </div>
+
+    <div class="qris">
+      <img src="https://files.catbox.moe/sbo3uf.jpg" alt="QRIS Code" />
+    </div>
+    <div class="footer">Scan QRIS di atas untuk melakukan pembayaran</div>
+  </div>
+
+  <script>
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Nomor berhasil disalin: " + text);
+      });
+    }
+  </script>
+</body>
+</html>
